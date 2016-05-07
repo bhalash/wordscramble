@@ -1,3 +1,5 @@
+![](/banner.png)
+
 # wordsramble
 wordscramble is a completely pointless Node package: It returns a string randomly scrambled.
 
