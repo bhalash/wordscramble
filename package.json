@@ -9,6 +9,11 @@
   "scripts": {
     "test": "node test"
   },
+  "keywords": ["bogosort", "scramble", "string", "permute"],
+  "repository": {
+      "url": "git@github.com:bhalash/wordscramble.git",
+      "type": "git"
+  },
   "author": "Mark Grealish <mark@bhalash.com> (https://www.bhalash.com)",
   "license": "MIT"
 }
