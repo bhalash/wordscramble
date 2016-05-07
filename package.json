@@ -4,16 +4,28 @@
   "description": "A small, pointless function which returns a string shuffled randomly.'",
   "main": "index.js",
   "devDependencies": {
-      "tap": "5.7.0"
+    "tape": "^4.5.1"
   },
   "scripts": {
     "test": "node test"
   },
-  "keywords": ["bogosort", "scramble", "string", "permute"],
+  "keywords": [
+    "bogosort",
+    "scramble",
+    "string",
+    "permute"
+  ],
   "repository": {
-      "url": "git@github.com:bhalash/wordscramble.git",
-      "type": "git"
+    "url": "git+ssh://git@github.com/bhalash/wordscramble.git",
+    "type": "git"
   },
   "author": "Mark Grealish <mark@bhalash.com> (https://www.bhalash.com)",
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bhalash/wordscramble/issues"
+  },
+  "homepage": "https://github.com/bhalash/wordscramble#readme",
+  "dependencies": {
+    "tape": "^4.5.1"
+  }
 }
