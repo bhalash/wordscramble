@@ -5,7 +5,7 @@ wordscramble is a completely pointless Node package which you shouldn't install.
 
 wordscramble, on the other hand, is reaonably robust against whatever random crap you throw at it, and it does some cool stuff with recursion to get the job done.
 
-### Badges
+## Badges
 Look at all the shiny badges! Badges mean quality and wordscramble has *six* quality. Look at them! **Look at them!** :)
 
 [![Build Status](https://travis-ci.org/bhalash/wordscramble.svg?branch=master)](https://travis-ci.org/bhalash/wordscramble)
@@ -15,11 +15,11 @@ Look at all the shiny badges! Badges mean quality and wordscramble has *six* qua
 
 [![forthebadge](http://forthebadge.com/images/badges/uses-badges.svg)](http://forthebadge.com) [![forthebadge](http://forthebadge.com/images/badges/gluten-free.svg)](http://forthebadge.com)
 
-### Installation
+## Installation
 
     npm install wordscramble
 
-### Usage
+## Usage
 
     var scramble = require('wordscramble');
     scramble(true); // false
@@ -33,22 +33,22 @@ wordscramble boasts 100% test coverage. To verify:
 
     npm test
 
-### Contributing
+## Contributing
 Go wild! All pull requests are welcome.
 
-### License
+## License
 The code is available under the [MIT license](/LICENSE).
 
-### FAQ
+## FAQ
 
 ##### Why?
 [Teeling Single Malt](http://www.celticwhiskeyshop.com/teeling-single-malt-).
 
-#### Okay...
+##### Okay...
 Yeah, look. Like, it was my birthday this weekend and I was gifted a bottle of whiskey. First I drank the whiskey and then I wrote this.
 
-#### What's with all the *Dune* references?
+##### What's with all the *Dune* references?
 I'm an unasahmed fanboy.
 
-### TODO
+## TODO
 * Add cryptographically-secure random number generation.
