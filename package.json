@@ -1,6 +1,6 @@
 {
   "name": "wordscramble",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "A small, pointless function which returns a string shuffled randomly.",
   "main": "index.js",
   "devDependencies": {
