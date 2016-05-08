@@ -76,7 +76,7 @@ scramble.bool = function(victim) {
  */
 
 scramble.object = function(victim) {
-    Object.keys(victim).forEach(key => {
+    Object.keys(victim).forEach(function(key) {
         victim[key] = scramble.shuffle(victim[key]);
     });
 
