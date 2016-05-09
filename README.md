@@ -1,12 +1,12 @@
 ![](/banner.png)
 
-# wordsramble
-wordscramble is a completely pointless Node package which you shouldn't install. The *only* thing wordscramble does is reorder common JavaSCript values. This is a [is-thirteen](https://github.com/jezen/is-thirteen) level of uselessness.
+# Wordsramble
+Wordscramble is a completely pointless Node package which you shouldn't install. The *only* thing wordscramble does is scramble JavaScript object values. This is an [is-thirteen](https://github.com/jezen/is-thirteen) level of uselessness.
 
-wordscramble, on the other hand, is reaonably robust against whatever random crap you throw at it, and it does some cool stuff with recursion to get the job done.
+On the other hand, Wordscramble is reaonably robust against whatever random crap you throw at it, and it does some cool stuff with recursion to get the job done.
 
 ## Badges
-Look at all the shiny badges! Badges mean quality and wordscramble has *six* quality. Look at them! **Look at them!** :)
+Look at all the shiny badges! Badges mean quality and Wordscramble has *six* quality. Look at them! **Look at them!** :)
 
 [![Build Status](https://travis-ci.org/bhalash/wordscramble.svg?branch=master)](https://travis-ci.org/bhalash/wordscramble)
 [![Dependency Status](https://david-dm.org/bhalash/wordscramble.svg)](https://david-dm.org/bhalash/wordscramble)
@@ -29,7 +29,7 @@ Look at all the shiny badges! Badges mean quality and wordscramble has *six* qua
     scramble(['Atreides', 'Harkonnen', 'Corrino', 'Ginaz']); // [ 'oeannHnkr', 'znaGi', 'estrAedi', 'roirnoC' ]
 
 ### Testing
-wordscramble boasts 100% test coverage. To verify:
+Wordscramble boasts 100% test coverage. To verify:
 
     npm test
 

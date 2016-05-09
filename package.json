@@ -1,7 +1,7 @@
 {
   "name": "wordscramble",
-  "version": "1.1.5",
-  "description": "A small pointless package that scrambles the values of most JavaScript objects.",
+  "version": "1.1.6",
+  "description": "A small, pointless package that scrambles values.",
   "main": "index.js",
   "devDependencies": {
     "tape": "^4.5.1"
