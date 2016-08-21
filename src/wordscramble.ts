@@ -1,8 +1,17 @@
 import * as _ from 'lodash';
 
 export class Wordscramble {
+    /**
+     * Scramble a variable of any type.
+     *
+     * @param {any} - A variable of any type, unscrambled.
+     * @returns {any} - A variable of any type, scrambled.
+     */
+
     shuffle(victim:any):any {
         if (_.isArray(victim)) {
+            /* Recurively walk, and scramble, each value in an array, then
+             * scramble the order of the elements. */
             victim = this.array(_.map(victim, this.shuffle));
         } else if (_.isBoolean(victim)) {
             victim = this.boolean(victim);
@@ -17,6 +26,16 @@ export class Wordscramble {
         return victim;
     }
 
+    /**
+     * Scramble the order of elements in an array.
+     *
+     * Strings (and numbers cast as strings) are passed to this function to be
+     * scrambled.
+     *
+     * @param {any[]} victim - Array, unscrambled.
+     * @returns {any[]} victim - Array, scrambled.
+     */
+
     array(victim:any[]):any[] {
         var index:number = victim.length,
             random:number = 0;
@@ -29,13 +48,36 @@ export class Wordscramble {
         return victim;
     }
 
+    /**
+     * Scramble a Boolean value by, like, flipping it.
+     *
+     * @param {boolean} victim - Boolean, unscrambled.
+     * @returns {boolean} victim - Boolean, scrambled.
+     */
+
     boolean(victim:boolean):boolean {
         return !victim;
     }
 
+    /**
+     * Scramble a numerical value by rearranging the order of the digits.
+     *
+     * This is functionally identical to Wordscramble.string().
+     *
+     * @param {number} victim - Number, unscrambled.
+     * @returns {number} victim - Number, scrambled.
+     */
+
     number(victim:number):number {
         return _.toNumber(this.string(victim));
     }
+
+    /**
+     * Recursively walk an object an scramble all values.
+     *
+     * @param {object} victim - Number, unscrambled.
+     * @returns {object} victim - Number, scrambled.
+     */
 
     object(victim:any):any {
         return _.mapValues(victim, this.shuffle);
