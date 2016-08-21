@@ -1,11 +1,12 @@
 "use strict";
 var _ = require('lodash');
 var Wordscramble = (function () {
-    function Wordscramble() {
+    function Wordscramble(victim) {
+        return this.scramble(victim);
     }
-    Wordscramble.prototype.shuffle = function (victim) {
+    Wordscramble.prototype.scramble = function (victim) {
         if (_.isArray(victim)) {
-            victim = this.array(_.map(victim, this.shuffle));
+            victim = this.array(_.map(victim, this.scramble));
         }
         else if (_.isBoolean(victim)) {
             victim = this.boolean(victim);
@@ -37,7 +38,7 @@ var Wordscramble = (function () {
         return _.toNumber(this.string(victim));
     };
     Wordscramble.prototype.object = function (victim) {
-        return _.mapValues(victim, this.shuffle);
+        return _.mapValues(victim, this.scramble);
     };
     Wordscramble.prototype.string = function (victim) {
         return this.array(_.toString(victim).split('')).join('');

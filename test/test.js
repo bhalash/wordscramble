@@ -1,4 +1,4 @@
-var scramble = require('./'),
+var scramble = new (require('./')).Wordscramble();
     test = require('tape');
 
 test('scramble', function(assert) {

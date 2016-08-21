@@ -1,6 +1,10 @@
 import * as _ from 'lodash';
 
 export class Wordscramble {
+    constructor(victim:any) {
+        return this.scramble(victim);
+    }
+
     /**
      * Scramble a variable of any type.
      *
@@ -8,11 +12,11 @@ export class Wordscramble {
      * @returns {any} - A variable of any type, scrambled.
      */
 
-    shuffle(victim:any):any {
+    scramble(victim:any):any {
         if (_.isArray(victim)) {
             /* Recurively walk, and scramble, each value in an array, then
              * scramble the order of the elements. */
-            victim = this.array(_.map(victim, this.shuffle));
+            victim = this.array(_.map(victim, this.scramble));
         } else if (_.isBoolean(victim)) {
             victim = this.boolean(victim);
         } else if (_.isString(victim)) {
@@ -80,7 +84,7 @@ export class Wordscramble {
      */
 
     object(victim:any):any {
-        return _.mapValues(victim, this.shuffle);
+        return _.mapValues(victim, this.scramble);
     }
 
     /**

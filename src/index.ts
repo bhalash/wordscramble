@@ -1,1 +1,1 @@
-// module.exports = require('./wordscramble');
+export * as Wordscramble from 'Wordscramble';
