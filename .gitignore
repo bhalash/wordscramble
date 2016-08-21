@@ -1,8 +1,8 @@
 /*
+/**/*.d.ts
 
 # Project Folders.
 !dist/
-dist/*.d.ts
 !src/
 !test/
 
