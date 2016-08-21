@@ -1,2 +1,15 @@
-node_modules/
-scratch.js
+/*
+
+# Project Folders.
+!dist/
+!src/
+!test/
+
+# Project Files.
+!.gitignore
+!LICENSE
+!README.md
+!banner.png
+!package.json
+!tsconfig.json
+!typings.json
