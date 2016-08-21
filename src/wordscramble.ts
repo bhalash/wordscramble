@@ -73,7 +73,7 @@ export class Wordscramble {
     }
 
     /**
-     * Recursively walk an object an scramble all values.
+     * Recursively walk an object in order to scramble all values.
      *
      * @param {object} victim - Number, unscrambled.
      * @returns {object} victim - Number, scrambled.
@@ -82,6 +82,15 @@ export class Wordscramble {
     object(victim:any):any {
         return _.mapValues(victim, this.shuffle);
     }
+
+    /**
+     * Scramble a string value by rearranging the order of the characters.
+     *
+     * This is functionally identical to Wordscramble.number().
+     *
+     * @param {string} victim - String, unscrambled.
+     * @returns {string} victim - String, scrambled.
+     */
 
     string(victim:string):string {
         return this.array(_.toString(victim).split('')).join('');
