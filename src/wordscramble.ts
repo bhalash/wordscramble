@@ -1,4 +1,5 @@
-import * as _ from 'lodash';
+// import * as _ from 'lodash';
+import 'lodash';
 
 export class Wordscramble {
     constructor(victim:any) {
@@ -73,7 +74,7 @@ export class Wordscramble {
      */
 
     number(victim:number):number {
-        return _.toNumber(this.string(victim));
+        return _.toNumber(this.string(_.toString(victim)));
     }
 
     /**
