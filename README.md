@@ -31,7 +31,7 @@ Look at all the shiny badges! Badges mean quality and Wordscramble has *six* qua
 ### Testing
 Wordscramble boasts 100% test coverage. To verify:
 
-    npm test
+    npm test/test
 
 ## Contributing
 Go wild! All pull requests are welcome.
