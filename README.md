@@ -1,9 +1,9 @@
 ![](/banner.png)
 
-# Wordsramble
-Wordscramble is a completely pointless Node package which you shouldn't install. The *only* thing wordscramble does is scramble JavaScript object values. This is an [is-thirteen](https://github.com/jezen/is-thirteen) level of uselessness.
+# Wordscramble
+Wordscramble is a completely pointless and functionally-programmed Node package which you shouldn't install. The *only* thing Wordscramble does is scramble JavaScript object values. This is an [is-thirteen](https://github.com/jezen/is-thirteen) level of uselessness, although _I_ can boast that _my_ functions are artisanal; they're both pure and free of side-effects.
 
-On the other hand, Wordscramble is reaonably robust against whatever random crap you throw at it, and it does some cool stuff with recursion to get the job done.
+On the other hand, Wordscramble is reasonably robust against whatever random crap you throw at it, and it does some cool stuff with recursion to get the job done.
 
 ## Badges
 Look at all the shiny badges! Badges mean quality and Wordscramble has *six* quality. Look at them! **Look at them!** :)
@@ -21,12 +21,18 @@ Look at all the shiny badges! Badges mean quality and Wordscramble has *six* qua
 
 ## Usage
 
-    var scramble = require('wordscramble').ws;
-    scramble(true); // false
-    scramble(0.123131231); // 11.32233110
-    scramble('heighliner'); // glhenehrii
-    scramble({atreides: 'Caladan', corinno: 'Kaitain'}); //{ atreides: 'ladnaCa', corinno: 'anaiKit' }
-    scramble(['Atreides', 'Harkonnen', 'Corrino', 'Ginaz']); // [ 'oeannHnkr', 'znaGi', 'estrAedi', 'roirnoC' ]
+    var ws = require('wordscramble').ws;
+    ws.scramble(true); // false
+    ws.scramble(0.123131231); // 11.32233110
+    ws.scramble('heighliner'); // glhenehrii
+    ws.scramble({atreides: 'Caladan', corinno: 'Kaitain'}); //{ atreides: 'ladnaCa', corinno: 'anaiKit' }
+    ws.scramble(['Atreides', 'Harkonnen', 'Corrino', 'Ginaz']); // [ 'oeannHnkr', 'znaGi', 'estrAedi', 'roirnoC' ]
+
+    ws.array(['Paul Atreides', 'Alia Atreides', 'Leto Atreides']); // [ 'Alia Atreides', 'Leto Atreides', 'Paul Atreides' ]
+    ws.bool(true); // false
+    ws.number(10191); // 90111
+    ws.object({ spice: 'essential', fremen: 'scary', shaihulud: 'literally god' }); { spice: 'ineslstea', fremen: 'arcys', shaihulud: 'yaol gltrdlei' }
+    ws.string('bene gesserit'); // 'ietrbens seeg'
 
 ### Testing
 Wordscramble boasts 100% test coverage. To verify:
@@ -48,7 +54,7 @@ The code is available under the [MIT license](/LICENSE).
 Yeah, look. Like, it was my birthday this weekend and I was gifted a bottle of whiskey. First I drank the whiskey and then I wrote this.
 
 ##### What's with all the *Dune* references?
-I'm an unasahmed fanboy.
+I'm an unashamed fan for all things [_Dune_](https://en.wikipedia.org/wiki/Dune_(novel)) and Frank Herbert.
 
 ## TODO
 * Add cryptographically-secure random number generation.
