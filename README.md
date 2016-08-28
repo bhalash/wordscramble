@@ -21,7 +21,7 @@ Look at all the shiny badges! Badges mean quality and Wordscramble has *six* qua
 
 ## Usage
 
-    var scramble = require('wordscramble');
+    var scramble = require('wordscramble').ws;
     scramble(true); // false
     scramble(0.123131231); // 11.32233110
     scramble('heighliner'); // glhenehrii
