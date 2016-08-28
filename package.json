@@ -1,6 +1,6 @@
 {
   "name": "wordscramble",
-  "version": "3.1.6",
+  "version": "3.1.7",
   "description": "A small, pointless package that scrambles values...",
   "main": "dist/index.js",
   "devDependencies": {
