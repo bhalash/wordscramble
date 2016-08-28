@@ -1,28 +1,27 @@
 "use strict";
 var _ = require('lodash');
-var Wordscramble = (function () {
-    function Wordscramble(victim) {
-        return this.scramble(victim);
-    }
-    Wordscramble.prototype.scramble = function (victim) {
+var ws;
+(function (ws) {
+    function scramble(victim) {
         if (_.isArray(victim)) {
-            victim = this.array(_.map(victim, this.scramble));
-        }
-        else if (_.isBoolean(victim)) {
-            victim = this.boolean(victim);
+            victim = array(_.map(victim, scramble));
         }
         else if (_.isString(victim)) {
-            victim = this.string(victim);
+            victim = string(victim);
+        }
+        else if (_.isBoolean(victim)) {
+            victim = boolean(victim);
         }
         else if (_.isNumber(victim)) {
-            victim = this.string(victim);
+            victim = string(victim);
         }
         else {
-            victim = this.object(victim);
+            victim = object(victim);
         }
         return victim;
-    };
-    Wordscramble.prototype.array = function (victim) {
+    }
+    ws.scramble = scramble;
+    function array(victim) {
         var index = victim.length, random = 0;
         while (--index > 0) {
             random = Math.floor(Math.random() * index);
@@ -30,19 +29,22 @@ var Wordscramble = (function () {
         }
         return victim;
         var _a;
-    };
-    Wordscramble.prototype.boolean = function (victim) {
+    }
+    ws.array = array;
+    function boolean(victim) {
         return !victim;
-    };
-    Wordscramble.prototype.number = function (victim) {
-        return _.toNumber(this.string(victim));
-    };
-    Wordscramble.prototype.object = function (victim) {
-        return _.mapValues(victim, this.scramble);
-    };
-    Wordscramble.prototype.string = function (victim) {
-        return this.array(_.toString(victim).split('')).join('');
-    };
-    return Wordscramble;
-}());
-exports.Wordscramble = Wordscramble;
+    }
+    ws.boolean = boolean;
+    function number(victim) {
+        return _.toNumber(string(_.toString(victim)));
+    }
+    ws.number = number;
+    function object(victim) {
+        return _.mapValues(victim, scramble);
+    }
+    ws.object = object;
+    function string(victim) {
+        return array(_.toString(victim).split('')).join('');
+    }
+    ws.string = string;
+})(ws = exports.ws || (exports.ws = {}));

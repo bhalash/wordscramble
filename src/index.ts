@@ -1,1 +1,1 @@
-export * as Wordscramble from 'Wordscramble';
+export * from './wordscramble';

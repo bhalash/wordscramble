@@ -1,3 +1,5 @@
 "use strict";
-var Wordscramble = require('./wordscramble');
-module.exports = new Wordscramble.Wordscramble();
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+__export(require('./wordscramble'));

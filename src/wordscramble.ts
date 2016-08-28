@@ -1,11 +1,6 @@
-// import * as _ from 'lodash';
-import 'lodash';
+import * as _ from 'lodash';
 
-export class Wordscramble {
-    constructor(victim:any) {
-        return this.scramble(victim);
-    }
-
+export namespace ws {
     /**
      * Scramble a variable of any type.
      *
@@ -13,19 +8,19 @@ export class Wordscramble {
      * @returns {any} - A variable of any type, scrambled.
      */
 
-    scramble(victim:any):any {
+    export function scramble(victim:any):any {
         if (_.isArray(victim)) {
             /* Recurively walk, and scramble, each value in an array, then
              * scramble the order of the elements. */
-            victim = this.array(_.map(victim, this.scramble));
-        } else if (_.isBoolean(victim)) {
-            victim = this.boolean(victim);
+            victim = array(_.map(victim, scramble));
         } else if (_.isString(victim)) {
-            victim = this.string(victim);
+            victim = string(victim);
+        } else if (_.isBoolean(victim)) {
+            victim = boolean(victim);
         } else if (_.isNumber(victim)) {
-            victim = this.string(victim);
+            victim = string(victim);
         } else {
-            victim = this.object(victim);
+            victim = object(victim);
         }
 
         return victim;
@@ -41,7 +36,7 @@ export class Wordscramble {
      * @returns {any[]} victim - Array, scrambled.
      */
 
-    array(victim:any[]):any[] {
+    export function array(victim:any[]):any[] {
         var index:number = victim.length,
             random:number = 0;
 
@@ -60,7 +55,7 @@ export class Wordscramble {
      * @returns {boolean} victim - Boolean, scrambled.
      */
 
-    boolean(victim:boolean):boolean {
+    export function boolean(victim:boolean):boolean {
         return !victim;
     }
 
@@ -73,8 +68,8 @@ export class Wordscramble {
      * @returns {number} victim - Number, scrambled.
      */
 
-    number(victim:number):number {
-        return _.toNumber(this.string(_.toString(victim)));
+    export function number(victim:number):number {
+        return _.toNumber(string(_.toString(victim)));
     }
 
     /**
@@ -84,8 +79,8 @@ export class Wordscramble {
      * @returns {object} victim - Number, scrambled.
      */
 
-    object(victim:any):any {
-        return _.mapValues(victim, this.scramble);
+    export function object(victim:any):any {
+        return _.mapValues(victim, scramble);
     }
 
     /**
@@ -97,7 +92,7 @@ export class Wordscramble {
      * @returns {string} victim - String, scrambled.
      */
 
-    string(victim:string):string {
-        return this.array(_.toString(victim).split('')).join('');
+    export function string(victim:string):string {
+        return array(_.toString(victim).split('')).join('');
     }
 }
