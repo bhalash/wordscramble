@@ -1,6 +1,6 @@
 import * as _ from 'lodash';
 
-export namespace ws {
+export namespace Wordscramble {
     /**
      * Scramble a variable of any type.
      *
@@ -12,18 +12,16 @@ export namespace ws {
         if (_.isArray(victim)) {
             /* Recurively walk, and scramble, each value in an array, then
              * scramble the order of the elements. */
-            victim = array(_.map(victim, scramble));
+            return array(_.map(victim, scramble));
         } else if (_.isString(victim)) {
-            victim = string(victim);
+            return string(victim);
         } else if (_.isBoolean(victim)) {
-            victim = boolean(victim);
+            return boolean(victim);
         } else if (_.isNumber(victim)) {
-            victim = string(victim);
+            return number(victim);
         } else {
-            victim = object(victim);
+            return object(victim);
         }
-
-        return victim;
     }
 
     /**
@@ -32,31 +30,29 @@ export namespace ws {
      * Strings (and numbers cast as strings) are passed to this function to be
      * scrambled.
      *
-     * @param {any[]} victim - Array, unscrambled.
-     * @returns {any[]} victim - Array, scrambled.
+     * @param {any[]} arr - Array, unscrambled.
+     * @returns {any[]} arr - Array, scrambled.
      */
 
-    export function array(victim:any[]):any[] {
-        var index:number = victim.length,
-            random:number = 0;
-
-        while (--index > 0) {
-            random = Math.floor(Math.random() * index);
-            [victim[index], victim[random]] = [victim[random], victim[index]];
+    export function array(arr:any[]):any[] {
+        if (!arr.length) {
+            return arr;
         }
 
-        return victim;
+        const random = Math.floor(Math.random() * arr.length);
+        [arr[0], arr[random]] = [arr[random], arr[0]];
+        return [arr[0]].concat(array(arr.slice(1)));
     }
 
     /**
      * Scramble a Boolean value by, like, flipping it.
      *
-     * @param {boolean} victim - Boolean, unscrambled.
-     * @returns {boolean} victim - Boolean, scrambled.
+     * @param {boolean} bool
+     * @returns {boolean} bool
      */
 
-    export function boolean(victim:boolean):boolean {
-        return !victim;
+    export function boolean(bool:boolean):boolean {
+        return !bool;
     }
 
     /**
@@ -64,23 +60,23 @@ export namespace ws {
      *
      * This is functionally identical to Wordscramble.string().
      *
-     * @param {number} victim - Number, unscrambled.
-     * @returns {number} victim - Number, scrambled.
+     * @param {number} num
+     * @returns {number} num
      */
 
-    export function number(victim:number):number {
-        return _.toNumber(string(_.toString(victim)));
+    export function number(num:number):number {
+        return _.toNumber(string(_.toString(num)));
     }
 
     /**
      * Recursively walk an object in order to scramble all values.
      *
-     * @param {object} victim - Number, unscrambled.
-     * @returns {object} victim - Number, scrambled.
+     * @param {object} obj
+     * @returns {object} obj
      */
 
-    export function object(victim:any):any {
-        return _.mapValues(victim, scramble);
+    export function object(obj:any):any {
+        return _.mapValues(obj, scramble);
     }
 
     /**
@@ -88,11 +84,11 @@ export namespace ws {
      *
      * This is functionally identical to Wordscramble.number().
      *
-     * @param {string} victim - String, unscrambled.
-     * @returns {string} victim - String, scrambled.
+     * @param {string} str
+     * @returns {string} str
      */
 
-    export function string(victim:string):string {
-        return array(_.toString(victim).split('')).join('');
+    export function string(str:string):string {
+        return array(_.toString(str).split('')).join('');
     }
 }
