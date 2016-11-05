@@ -25,6 +25,19 @@ export namespace Wordscramble {
     }
 
     /**
+     * Scramble a string value by rearranging the order of the characters.
+     *
+     * This is functionally identical to Wordscramble.number().
+     *
+     * @param {string} str
+     * @returns {string} str
+     */
+
+    export function string(str:string):string {
+        return array(_.toString(str).split('')).join('');
+    }
+
+    /**
      * Scramble the order of elements in an array.
      *
      * Strings (and numbers cast as strings) are passed to this function to be
@@ -77,18 +90,5 @@ export namespace Wordscramble {
 
     export function object(obj:any):any {
         return _.mapValues(obj, scramble);
-    }
-
-    /**
-     * Scramble a string value by rearranging the order of the characters.
-     *
-     * This is functionally identical to Wordscramble.number().
-     *
-     * @param {string} str
-     * @returns {string} str
-     */
-
-    export function string(str:string):string {
-        return array(_.toString(str).split('')).join('');
     }
 }
