@@ -1,50 +1,49 @@
 "use strict";
 var _ = require('lodash');
-var ws;
-(function (ws) {
+var Wordscramble;
+(function (Wordscramble) {
     function scramble(victim) {
         if (_.isArray(victim)) {
-            victim = array(_.map(victim, scramble));
+            return array(_.map(victim, scramble));
         }
         else if (_.isString(victim)) {
-            victim = string(victim);
+            return string(victim);
         }
         else if (_.isBoolean(victim)) {
-            victim = boolean(victim);
+            return boolean(victim);
         }
         else if (_.isNumber(victim)) {
-            victim = string(victim);
+            return number(victim);
         }
         else {
-            victim = object(victim);
+            return object(victim);
         }
-        return victim;
     }
-    ws.scramble = scramble;
-    function array(victim) {
-        var index = victim.length, random = 0;
-        while (--index > 0) {
-            random = Math.floor(Math.random() * index);
-            _a = [victim[random], victim[index]], victim[index] = _a[0], victim[random] = _a[1];
+    Wordscramble.scramble = scramble;
+    function string(str) {
+        return array(_.toString(str).split('')).join('');
+    }
+    Wordscramble.string = string;
+    function array(arr) {
+        if (!arr.length) {
+            return arr;
         }
-        return victim;
+        var random = Math.floor(Math.random() * arr.length);
+        _a = [arr[random], arr[0]], arr[0] = _a[0], arr[random] = _a[1];
+        return [arr[0]].concat(array(arr.slice(1)));
         var _a;
     }
-    ws.array = array;
-    function boolean(victim) {
-        return !victim;
+    Wordscramble.array = array;
+    function boolean(bool) {
+        return !bool;
     }
-    ws.boolean = boolean;
-    function number(victim) {
-        return _.toNumber(string(_.toString(victim)));
+    Wordscramble.boolean = boolean;
+    function number(num) {
+        return _.toNumber(string(_.toString(num)));
     }
-    ws.number = number;
-    function object(victim) {
-        return _.mapValues(victim, scramble);
+    Wordscramble.number = number;
+    function object(obj) {
+        return _.mapValues(obj, scramble);
     }
-    ws.object = object;
-    function string(victim) {
-        return array(_.toString(victim).split('')).join('');
-    }
-    ws.string = string;
-})(ws = exports.ws || (exports.ws = {}));
+    Wordscramble.object = object;
+})(Wordscramble = exports.Wordscramble || (exports.Wordscramble = {}));
