@@ -2,7 +2,7 @@
     "compileOnSave": true,
     "compilerOptions": {
         "removeComments": true,
-        "module": "commonjs",
+        "module": "amd",
         "target": "es5",
         "noImplicitAny": true,
         "outDir": "dist",
