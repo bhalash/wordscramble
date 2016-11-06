@@ -8,9 +8,6 @@
         "outDir": "dist",
         "allowJs": true
     },
-    "types": [
-        "lodash"
-    ],
     "include": [
         "src/**/*.ts"
     ],
