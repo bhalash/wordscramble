@@ -83,15 +83,20 @@ Wordscramble.prototype.string = function(string) {
  */
 
 Wordscramble.prototype.array = function(array) {
-    if (!array.length) {
+    if (array.length < 2) {
         return array;
     }
 
-    let rand = random(array.length);
-    let copy = array.slice();
+    let copy = array.slice(),
+        index = copy.length - 1,
+        rand = random(index);
 
-    [copy[0], copy[rand]] = [copy[rand], copy[0]];
-    return [copy[0], ...this.array(copy.slice(1))];
+    while (--index > 0) {
+        [copy[index], copy[rand]] = [copy[rand], copy[index]];
+        rand = random(index);
+    }
+
+    return copy;
 };
 
 /**
@@ -129,11 +134,7 @@ Wordscramble.prototype.number = function(number) {
 
 Wordscramble.prototype.object = function(object) {
     let copy = object;
-
-    Object.keys(copy).forEach(key => {
-        copy[key] = this.scramble(copy[key]);
-    });
-
+    Object.keys(copy).forEach(key => copy[key] = this.scramble(copy[key]));
     return copy;
 };
 
