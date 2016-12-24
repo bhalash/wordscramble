@@ -89,10 +89,13 @@ Wordscramble.prototype.array = function(array) {
 
     let copy = array.slice(),
         index = copy.length,
-        rand = random(index);
+        rand = random(index),
+        temp;
 
     while (--index > 0) {
-        [copy[index], copy[rand]] = [copy[rand], copy[index]];
+        temp = copy[index];
+        copy[index] = copy[rand];
+        copy[rand] = temp;
         rand = random(index);
     }
 
