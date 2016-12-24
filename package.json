@@ -1,6 +1,6 @@
 {
   "name": "wordscramble",
-  "version": "4.1.17",
+  "version": "4.1.18",
   "description": "A small, pointless package that scrambles values...",
   "main": "dist/wordscramble.js",
   "scripts": {

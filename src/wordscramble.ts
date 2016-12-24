@@ -54,7 +54,11 @@ export namespace Wordscramble {
 
         const random = Math.floor(Math.random() * arr.length);
         [arr[0], arr[random]] = [arr[random], arr[0]];
-        return [arr[0]].concat(array(arr.slice(1)));
+
+        return [
+            arr[0],
+            ...array(arr.slice(1))
+        ]
     }
 
     /**

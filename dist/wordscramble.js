@@ -30,7 +30,9 @@ var Wordscramble;
         }
         var random = Math.floor(Math.random() * arr.length);
         _a = [arr[random], arr[0]], arr[0] = _a[0], arr[random] = _a[1];
-        return [arr[0]].concat(array(arr.slice(1)));
+        return [
+            arr[0]
+        ].concat(array(arr.slice(1)));
         var _a;
     }
     Wordscramble.array = array;
