@@ -133,7 +133,7 @@ Wordscramble.prototype.number = function(number) {
  */
 
 Wordscramble.prototype.object = function(object) {
-    let copy = object;
+    let copy = Object.assign({}, object);
     Object.keys(copy).forEach(key => copy[key] = this.scramble(copy[key]));
     return copy;
 };
