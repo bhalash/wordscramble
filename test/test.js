@@ -1,5 +1,4 @@
 const wordscramble = require('../');
-const _ = require('lodash');
 const tape = require('tape');
 const range = require('range').range;
 
@@ -155,27 +154,27 @@ tape('Wordscramble.boolean()', assert => {
  * Wordscramble.number()
  */
 
-// tape('Wordscramble.number()', assert => {
-//     assert.plan(3);
-//
-//     assert.equal(
-//         typeof wordscramble.number,
-//         'function',
-//         'Wordscramble.number() should be a function.'
-//     );
-//
-//     assert.notEqual(
-//         wordscramble.scramble(samples.number),
-//         samples.number,
-//         'Should scramble the digits of a number.'
-//     );
-//
-//     assert.equal(
-//         _.isNumber(samples.number),
-//         _.isNumber(wordscramble.number(samples.number)),
-//         'Should return a number.'
-//     );
-// });
+tape('Wordscramble.number()', assert => {
+    assert.plan(3);
+
+    assert.equal(
+        typeof wordscramble.number,
+        'function',
+        'Wordscramble.number() should be a function.'
+    );
+
+    assert.notEqual(
+        wordscramble.scramble(samples.number),
+        samples.number,
+        'Should scramble the digits of a number.'
+    );
+
+    assert.equal(
+        _.isNumber(samples.number),
+        _.isNumber(wordscramble.number(samples.number)),
+        'Should return a number.'
+    );
+});
 
 /**
  * Wordscramble.object()
