@@ -21,43 +21,12 @@ const samples = {
  */
 
 tape('Wordscramble.scramble()', assert => {
-    assert.plan(6);
+    assert.plan(3);
+    const victims = samples;
 
-    assert.equal(
-        typeof wordscramble.scramble,
-        'function',
-        'Wordscramble.scramble() should be a function.'
-    );
-
-    assert.notEqual(
-        wordscramble.scramble(samples.string),
-        samples.string,
-        'Should return an equal value if one character is passed.'
-    );
-
-    assert.notEqual(
-        wordscramble.scramble(samples.boolean),
-        samples.boolean,
-        'Should invert a Boolean value.'
-    );
-
-    assert.notEqual(
-        wordscramble.scramble(samples.number),
-        samples.number,
-        'Should scramble the digits of a number.'
-    );
-
-    assert.notEqual(
-        wordscramble.scramble(samples.array),
-        samples.array,
-        'Should randomly and recursively scramble the values of an array.'
-    );
-
-    assert.notEqual(
-        wordscramble.scramble(samples.object),
-        samples.object,
-        'Should randomly and recursively scramble the values of an array.'
-    );
+    assert.equal(typeof wordscramble, 'object');
+    assert.notEqual(wordscramble.scramble(victims), victims);
+    assert.deepEquals(victims, samples);
 });
 
 /**
@@ -65,31 +34,12 @@ tape('Wordscramble.scramble()', assert => {
  */
 
 tape('Wordscramble.string()', assert => {
-    assert.plan(4);
+    assert.plan(3);
+    const victims = samples;
 
-    assert.equal(
-        typeof wordscramble.string,
-        'function',
-        'Wordscramble.string() should be a function.'
-    );
-
-    assert.notEqual(
-        wordscramble.scramble(samples.string),
-        samples.string,
-        'Should randomly and recursively scramble the values of a string.'
-    );
-
-    assert.equal(
-        samples.string.length,
-        wordscramble.string(samples.string).length,
-        'Should not consume or add characters to a string.'
-    );
-
-    assert.equal(
-        _.isArray(samples.string),
-        _.isArray(wordscramble.string(samples.string)),
-        'Should return a string.'
-    );
+    assert.equal(typeof wordscramble.string, 'function');
+    assert.notEqual(wordscramble.string(victims.string), victims.string);
+    assert.deepEquals(victims.string, samples.string);
 });
 
 /**
@@ -97,31 +47,12 @@ tape('Wordscramble.string()', assert => {
  */
 
 tape('Wordscramble.array()', assert => {
-    assert.plan(4);
+    assert.plan(3);
+    const victims = samples;
 
-    assert.equal(
-        typeof wordscramble.array,
-        'function',
-        'Wordscramble.array() should be a function.'
-    );
-
-    assert.notEqual(
-        wordscramble.scramble(samples.array),
-        samples.array,
-        'Should randomly and recursively scramble the values of an array.'
-    );
-
-    assert.equal(
-        samples.array.length,
-        wordscramble.array(samples.array).length,
-        'Should not consume or add items to an array.'
-    );
-
-    assert.equal(
-        _.isArray(samples.array),
-        _.isArray(wordscramble.array(samples.array)),
-        'Should return an array.'
-    );
+    assert.equal(typeof wordscramble.array, 'function');
+    assert.notEqual(wordscramble.array(victims.array), victims.array);
+    assert.deepEquals(victims.array, samples.array);
 });
 
 /**
@@ -130,24 +61,11 @@ tape('Wordscramble.array()', assert => {
 
 tape('Wordscramble.boolean()', assert => {
     assert.plan(3);
+    const victims = samples;
 
-    assert.equal(
-        typeof wordscramble.boolean,
-        'function',
-        'Wordscramble.boolean() should be a function.'
-    );
-
-    assert.equal(
-        wordscramble.boolean(true),
-        false,
-        'Should invert a Boolean value.'
-    );
-
-    assert.equal(
-        _.isBoolean(samples.boolean),
-        _.isBoolean(wordscramble.boolean(samples.boolean)),
-        'Should return a boolean.'
-    );
+    assert.equal(typeof wordscramble.boolean, 'function');
+    assert.notEqual(wordscramble.boolean(victims.boolean), victims.boolean);
+    assert.deepEquals(victims.boolean, samples.boolean);
 });
 
 /**
@@ -156,24 +74,11 @@ tape('Wordscramble.boolean()', assert => {
 
 tape('Wordscramble.number()', assert => {
     assert.plan(3);
+    const victims = samples;
 
-    assert.equal(
-        typeof wordscramble.number,
-        'function',
-        'Wordscramble.number() should be a function.'
-    );
-
-    assert.notEqual(
-        wordscramble.scramble(samples.number),
-        samples.number,
-        'Should scramble the digits of a number.'
-    );
-
-    assert.equal(
-        _.isNumber(samples.number),
-        _.isNumber(wordscramble.number(samples.number)),
-        'Should return a number.'
-    );
+    assert.equal(typeof wordscramble.number, 'function');
+    assert.notEqual(wordscramble.number(victims.number), victims.number);
+    assert.deepEquals(victims.number, samples.number);
 });
 
 /**
@@ -181,29 +86,10 @@ tape('Wordscramble.number()', assert => {
  */
 
 tape('Wordscramble.object()', assert => {
-    assert.plan(4);
+    assert.plan(3);
+    const victims = samples;
 
-    assert.equal(
-        typeof wordscramble.object,
-        'function',
-        'Wordscramble.object() should be a function.'
-    );
-
-    assert.notEqual(
-        wordscramble.scramble(samples.object),
-        samples.object,
-        'Should scramble values of an object.'
-    );
-
-    assert.deepEqual(
-        Object.keys(samples.object),
-        Object.keys(wordscramble.object(samples.object)),
-        'Should not add to or remove from the keys of an object.'
-    );
-
-    assert.equal(
-        _.isObject(samples.object),
-        _.isObject(wordscramble.object(samples.object)),
-        'Should return an object.'
-    );
+    assert.equal(typeof wordscramble.object, 'function');
+    assert.notEqual(wordscramble.object(victims.object), victims.object);
+    assert.deepEquals(victims.object, samples.object);
 });
