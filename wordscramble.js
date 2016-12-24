@@ -88,7 +88,7 @@ Wordscramble.prototype.array = function(array) {
     }
 
     let copy = array.slice(),
-        index = copy.length - 1,
+        index = copy.length,
         rand = random(index);
 
     while (--index > 0) {
