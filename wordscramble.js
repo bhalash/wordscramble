@@ -43,16 +43,17 @@ function type(victim) {
  */
 
 Wordscramble.prototype.scramble = function(victim) {
-    switch (type(victim)) {
+    const victimType = type(victim);
+
+    switch (victimType) {
     case 'array':
         /* Recurively walk, and scramble, each value in an array, then
-         * scramble the order of the elements. .call() is used to preserve
-         * context. */
-        return this.array(victim.map(element => this.scramble.call(this, element)));
+         * scramble the order of the elements. */
+        return this.array(victim.map(this.scramble, this));
     case 'function':
         return victim;
     default:
-        return this[type(victim)](victim);
+        return this[victimType](victim);
     }
 };
 
