@@ -89,7 +89,7 @@ Wordscramble.prototype.array = function(array) {
     let copy = array.slice();
 
     [copy[0], copy[rand]] = [copy[rand], copy[0]];
-    return [copy[0], ...this.copy(copy.slice(1))];
+    return [copy[0], ...this.array(copy.slice(1))];
 };
 
 /**
