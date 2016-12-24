@@ -46,8 +46,9 @@ Wordscramble.prototype.scramble = function(victim) {
     switch (type(victim)) {
     case 'array':
         /* Recurively walk, and scramble, each value in an array, then
-         * scramble the order of the elements. */
-        return this.array(victim.map(this.scramble));
+         * scramble the order of the elements. .call() is used to preserve
+         * context. */
+        return this.array(victim.map(element => this.scramble.call(this, element)));
     case 'function':
         return victim;
     default:
