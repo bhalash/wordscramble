@@ -6,34 +6,35 @@ Wordscramble is a completely pointless and functionally-programmed Node package 
 On the other hand, Wordscramble is reasonably robust against whatever random crap you throw at it, and it does some cool stuff with recursion to get the job done.
 
 ## Badges
-Look at all the shiny badges! Badges mean quality and Wordscramble has *six* quality. Look at them! **Look at them!** :)
+Look at all the shiny badges! Badges mean quality and Wordscramble has *four* quality. Look at them! **Look at them!** :)
 
 [![Build Status](https://travis-ci.org/bhalash/wordscramble.svg?branch=master)](https://travis-ci.org/bhalash/wordscramble)
 [![Dependency Status](https://david-dm.org/bhalash/wordscramble.svg)](https://david-dm.org/bhalash/wordscramble)
 [![devDependency Status](https://david-dm.org/bhalash/wordscramble/dev-status.svg)](https://david-dm.org/bhalash/wordscramble#info=devDependencies)
 [![npm version](https://badge.fury.io/js/wordscramble.svg)](https://badge.fury.io/js/wordscramble)
 
-[![forthebadge](http://forthebadge.com/images/badges/uses-badges.svg)](http://forthebadge.com) [![forthebadge](http://forthebadge.com/images/badges/gluten-free.svg)](http://forthebadge.com)
-
 ## Installation
 
     npm install wordscramble
 
 ## Usage
+`wordscramble.scramble()` will attempt to guess the appropriate scramble function for a given variable:
 
-    var ws = require('wordscramble').Wordscramble;
+    const wordscramble = require('wordscramble');
 
-    ws.scramble(true); // false
-    ws.scramble(0.123131231); // 11.32233110
-    ws.scramble('heighliner'); // glhenehrii
-    ws.scramble({atreides: 'Caladan', corinno: 'Kaitain'}); //{ atreides: 'ladnaCa', corinno: 'anaiKit' }
-    ws.scramble(['Atreides', 'Harkonnen', 'Corrino', 'Ginaz']); // [ 'oeannHnkr', 'znaGi', 'estrAedi', 'roirnoC' ]
+    wordscramble.scramble(true); // false
+    wordscramble.scramble(0.123131231); // 11.32233110
+    wordscramble.scramble('heighliner'); // glhenehrii
+    wordscramble.scramble({atreides: 'Caladan', corinno: 'Kaitain'}); //{ atreides: 'ladnaCa', corinno: 'anaiKit' }
+    wordscramble.scramble(['Atreides', 'Harkonnen', 'Corrino', 'Ginaz']); // [ 'oeannHnkr', 'znaGi', 'estrAedi', 'roirnoC' ]
 
-    ws.array(['Paul Atreides', 'Alia Atreides', 'Leto Atreides']); // [ 'Alia Atreides', 'Leto Atreides', 'Paul Atreides' ]
-    ws.bool(true); // false
-    ws.number(10191); // 90111
-    ws.object({ spice: 'essential', fremen: 'scary', shaihulud: 'literally god' }); { spice: 'ineslstea', fremen: 'arcys', shaihulud: 'yaol gltrdlei' }
-    ws.string('bene gesserit'); // 'ietrbens seeg'
+Scramble methods for a given type may be accessed directly:
+
+    wordscramble.array(['Paul Atreides', 'Alia Atreides', 'Leto Atreides']); // [ 'Alia Atreides', 'Leto Atreides', 'Paul Atreides' ]
+    wordscramble.bool(true); // false
+    wordscramble.number(10191); // 90111
+    wordscramble.object({ spice: 'essential', fremen: 'scary', shaihulud: 'literally god' }); { spice: 'ineslstea', fremen: 'arcys', shaihulud: 'yaol gltrdlei' }
+    wordscramble.string('bene gesserit'); // 'ietrbens seeg'
 
 ### Testing
 Wordscramble boasts 100% test coverage. To verify:
@@ -56,6 +57,3 @@ Yeah, look. Like, it was my birthday this weekend and I was gifted a bottle of w
 
 ##### What's with all the *Dune* references?
 I'm an unashamed fan for all things [_Dune_](https://en.wikipedia.org/wiki/Dune_(novel)) and Frank Herbert.
-
-## TODO
-* Add cryptographically-secure random number generation.

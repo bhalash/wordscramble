@@ -1,6 +1,6 @@
 {
   "name": "wordscramble",
-  "version": "5.1.18",
+  "version": "5.1.19",
   "description": "A small, pointless package that scrambles values...",
   "main": "wordscramble.js",
   "scripts": {
