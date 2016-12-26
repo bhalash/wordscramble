@@ -46,7 +46,6 @@ Wordscramle returns a scrambled copy of passed data. Original values are _never_
     { dueke: 'Leto', heir: 'Paul' }
 
 ### Testing
-Wordscramble boasts 100% test coverage. To verify:
 
     npm test/test
 
@@ -54,7 +53,7 @@ Wordscramble boasts 100% test coverage. To verify:
 Go wild! All pull requests are welcome.
 
 ## License
-The code is available under the [MIT license](/LICENSE).
+Copyright (c) 2016 [Mark Grealish][10]. See [LICENSE](LICENSE) for details.
 
 ## FAQ
 
