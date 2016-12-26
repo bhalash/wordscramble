@@ -36,6 +36,15 @@ Scramble methods for a given type may be accessed directly:
     wordscramble.object({ spice: 'essential', fremen: 'scary', shaihulud: 'literally god' }); { spice: 'ineslstea', fremen: 'arcys', shaihulud: 'yaol gltrdlei' }
     wordscramble.string('bene gesserit'); // 'ietrbens seeg'
 
+Wordscramle returns a scrambled copy of passed data. Original values are _never_ mutated:
+
+    > const atreides = { dueke: 'Leto', heir: 'Paul' }
+    undefined
+    > wordscramble.object(atreides)
+    { dueke: 'oetL', heir: 'Pual' }
+    > atreides
+    { dueke: 'Leto', heir: 'Paul' }
+
 ### Testing
 Wordscramble boasts 100% test coverage. To verify:
 

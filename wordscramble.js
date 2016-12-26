@@ -21,6 +21,8 @@ function random(max) {
 /**
  * Crude variable type detection.
  *
+ * TODO: More comprehensive type checking.
+ *
  * @private
  * @param {*} victim - Victim to identify.
  * @return {string} - Victim type.
@@ -46,14 +48,8 @@ Wordscramble.prototype.scramble = function(victim) {
     const victimType = type(victim);
 
     switch (victimType) {
-    case 'array':
-        /* Recurively walk, and scramble, each value in an array, then
-         * scramble the order of the elements. */
-        return this.array(victim.map(this.scramble, this));
-    case 'function':
-        return victim;
-    default:
-        return this[victimType](victim);
+    case 'function': return victim;
+    default: return this[victimType](victim);
     }
 };
 
@@ -79,7 +75,7 @@ Wordscramble.prototype.string = function(string) {
  *
  * @public
  * @param {array} collection - Unscrambled array.
- * @returns {array} collection - Scrambled array.
+ * @returns {array} collection - Recursively scrambled array.
  */
 
 Wordscramble.prototype.array = function(array) {
@@ -99,7 +95,7 @@ Wordscramble.prototype.array = function(array) {
         rand = random(index);
     }
 
-    return copy;
+    return copy.map(this.scramble, this);
 };
 
 /**
